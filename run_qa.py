@@ -22,7 +22,7 @@ import os
 import sys
 from dataclasses import dataclass, field
 from typing import Optional
-from BERT_architecture import DistilBert_pblstm
+from BERT_architecture import DistilBert_batchnorm_pblstm, DistilBert_pblstm
 
 from datasets import load_dataset, load_metric
 
@@ -228,7 +228,7 @@ def main():
         use_fast=True,
     )
     # model = AutoModelForQuestionAnswering.from_pretrained(
-    model = DistilBert_pblstm.from_pretrained(
+    model = DistilBert_batchnorm_pblstm.from_pretrained(
         model_args.model_name_or_path,
         from_tf=bool(".ckpt" in model_args.model_name_or_path),
         config=config,
